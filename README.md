@@ -66,6 +66,7 @@ python main.py
 # Variables
 
 stark x = 5
+
 stark name = "Jon Snow"
 
 ---
@@ -73,6 +74,7 @@ stark name = "Jon Snow"
 # User Input
 
 dracarys "Send a raven:"
+
 stark raven = lannister()
 
 ---
@@ -80,23 +82,17 @@ stark raven = lannister()
 # Output
 
 dracarys "Winter is Coming"
+
 dracarys raven
 
 ---
 
-# Operations
-
-stark a = 5
-stark b = 3
-stark sum = a + b
-stark diff = a - b
-stark product = a * b
-stark remainder = a % b
-
 # Reversing Strings
 
 stark word = "winter"
+
 stark flipped = turncloak(word)
+
 dracarys flipped
 
 ---
@@ -106,40 +102,47 @@ dracarys flipped
 stark number = 4
 
 win number % 2 == 0
+
     dracarys "loyal"
+
 die
+
     dracarys "traitor"
+
 dany
 
 # Loop
 
 stark symbol = "*"
+
 stark count = 5
+
 stark result = symbol * count
+
 dracarys result
 
 ---
 
 # Example Programs
 
-helloworld.txt        → prints a message
-cat.txt               → echoes user input
-multiply.txt          → multiplies two numbers
-repeater.txt          → repeats a character
-reverse_string.txt    → reverses input
-is_palindrome.txt     → checks palindrome
-is_even.txt           → checks if a number is even
+- helloworld.txt        → prints a message
+- cat.txt               → echoes user input
+- multiply.txt          → multiplies two numbers
+- repeater.txt          → repeats a character
+- reverse_string.txt    → reverses input
+- is_palindrome.txt     → checks palindrome
+- is_even.txt           → checks if a number is even
 
 ---
 
 # Theme
 
-dracarys → fire / output
-stark → declaration
-lannister() → receiving input
-win / die → conditional outcomes
-dany → ends a block
-turncloak() → reversing (switching sides)
+- dracarys → fire / output
+- stark → declaration
+- lannister() → receiving input
+- win / die → conditional outcomes
+- dany → ends a block
+- turncloak() → reversing (switching sides)
 
 ---
 
