@@ -1,3 +1,7 @@
+import sys
+
+filename = sys.argv[1]
+
 variables = {}
 
 def evaluate(expr):
@@ -57,4 +61,4 @@ def run_file(filename):
         elif line.startswith('dany'):
             pass
         i += 1
-run_file('is_even.txt')
+run_file(filename)
