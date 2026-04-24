@@ -111,16 +111,6 @@ die
 
 dany
 
-# Loop
-
-stark symbol = "*"
-
-stark count = 5
-
-stark result = symbol * count
-
-dracarys result
-
 ---
 
 # Example Programs
