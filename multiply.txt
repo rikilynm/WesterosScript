@@ -1,0 +1,8 @@
+dracarys "Name your first number"
+stark a = lannister()
+
+dracarys "Name your second"
+stark b = lannister()
+
+stark result = a * b
+dracarys result 

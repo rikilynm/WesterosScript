@@ -1,0 +1,10 @@
+dracarys "Name your number before the iron throne: "
+stark number = lannister()
+
+win number % 2 == 0 
+    dracarys "even"
+
+die 
+    dracarys "odd"
+
+dany

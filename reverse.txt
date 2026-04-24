@@ -1,0 +1,5 @@
+dracarys "Send a raven: "
+stark raven = lannister()
+
+stark flipped = turncloak(raven)
+dracarys flipped

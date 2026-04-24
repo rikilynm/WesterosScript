@@ -1,0 +1,8 @@
+dracarys "Send a sign to the realm:"
+stark symbol = lannister()
+
+dracarys "How many times shall it echo?"
+stark count = lannister()
+
+stark result = symbol * count 
+dracarys result 

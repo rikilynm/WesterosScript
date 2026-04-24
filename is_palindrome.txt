@@ -1,0 +1,10 @@
+dracarys "Are you here to bend the knee?"
+stark oath = lannister()
+
+win oath == turncloak(oath)
+    dracarys "loyal"
+
+die 
+    dracarys "traitor"
+
+dany
