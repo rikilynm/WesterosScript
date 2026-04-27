@@ -48,10 +48,10 @@ Supported operators:
 - `%` modulo
 - `==` equal
 - `!=` not equal
-- `<`
-- `>`
-- `<=`
-- `>=`
+- `<` greater than
+- `>` less than 
+- `<=` less than or equal too
+- `>=` greater than or equal too
 
 ---
 
