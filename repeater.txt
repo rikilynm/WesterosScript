@@ -4,5 +4,7 @@ stark symbol = lannister()
 dracarys "How many times shall it echo?"
 stark count = lannister()
 
-stark result = symbol * count 
-dracarys result 
+baratheon count > 0
+    stark count = count - 1
+    dracarys symbol
+dany

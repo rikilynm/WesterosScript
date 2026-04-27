@@ -1,20 +1,12 @@
 import sys
-
-filename = sys.argv[1]
+from westeros_functions import evaluate
 
 variables = {}
 
-def evaluate(expr):
-    function = {
-        'turncloak': lambda s: s[::-1],
-    }
-    return eval(expr, function, variables)
 
-def run_file(filename):
-    with open(filename, 'r') as f:
-        lines = f.readlines()
-
+def run_lines(lines):
     i = 0
+
     while i < len(lines):
         line = lines[i].strip()
 
@@ -22,43 +14,92 @@ def run_file(filename):
             i += 1
             continue
 
-        if line.startswith('stark'):
-            rest = line[len('stark'):].strip()
-            name, value = rest.split('=', 1)
+        # variable assignment
+        if line.startswith("stark"):
+            rest = line[len("stark"):].strip()
+            name, value = rest.split("=", 1)
 
             name = name.strip()
-            value = value.strip()   
+            value = value.strip()
 
-            if value == 'lannister()':
+            if value == "lannister()":
                 user_input = input()
                 variables[name] = int(user_input) if user_input.isdigit() else user_input
             else:
-                try:
-                    variables[name] = evaluate(value)
-                except:
-                    variables[name] = value.strip('"')
+                variables[name] = evaluate(value, variables)
 
+        # print
+        elif line.startswith("dracarys"):
+            content = line[len("dracarys"):].strip()
+            print(evaluate(content, variables))
 
-        elif line.startswith('dracarys'):
-            content = line[len('dracarys'):].strip()
+        # if / else
+        elif line.startswith("win"):
+            condition = line[len("win"):].strip()
 
-            try:
-                print(evaluate(content))
-            except:
-                print(content.strip('"'))  
+            true_block = []
+            false_block = []
 
-        elif line.startswith('win'):
-            condition = line[len('win'):].strip()
+            i += 1
 
-            if not evaluate(condition):
-                while i < len(lines) and not lines[i].strip().startswith(('die','dany')):
+            while i < len(lines):
+                block_line = lines[i].strip()
+
+                if block_line == "die":
                     i += 1
-            
-        elif line.startswith('die'):
-            while i < len(lines) and not lines[i].strip().startswith('dany'):
+                    break
+
+                if block_line == "dany":
+                    break
+
+                true_block.append(lines[i])
                 i += 1
-        
-        elif line.startswith('dany'):
-            pass
+
+            while i < len(lines):
+                block_line = lines[i].strip()
+
+                if block_line == "dany":
+                    break
+
+                false_block.append(lines[i])
+                i += 1
+
+            if evaluate(condition, variables):
+                run_lines(true_block)
+            else:
+                run_lines(false_block)
+
+        # loop
+        elif line.startswith("baratheon"):
+            condition = line[len("baratheon"):].strip()
+
+            loop_block = []
+
+            i += 1
+
+            while i < len(lines):
+                block_line = lines[i].strip()
+
+                if block_line == "dany":
+                    break
+
+                loop_block.append(lines[i])
+                i += 1
+
+            while evaluate(condition, variables):
+                run_lines(loop_block)
+
         i += 1
-run_file(filename)
+
+
+def run_file(filename):
+    with open(filename, "r") as f:
+        lines = f.readlines()
+
+    run_lines(lines)
+
+
+if len(sys.argv) < 2:
+    print("Usage: python main.py filename.txt")
+else:
+    run_file(sys.argv[1])

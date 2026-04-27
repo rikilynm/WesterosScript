@@ -1,1 +1,4 @@
 dracarys "Winter is Coming"
+
+stark winter = "Winter came"
+dracarys winter
